@@ -19,5 +19,15 @@ namespace DataAccess.Models
                 "\nAddress: " + Address;
             return finalStr;
         }
+
+        internal static Customer First(Func<object, bool> p)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static int IndexOf(Customer temp)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
