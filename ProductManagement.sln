@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfProductManagement", "WpfProductManagement\WpfProductManagement.csproj", "{C609201A-4C3E-4A27-A0F8-4664187F9FCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{C9D344D2-9723-49AD-AAC9-22025C7FE505}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C609201A-4C3E-4A27-A0F8-4664187F9FCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C609201A-4C3E-4A27-A0F8-4664187F9FCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C609201A-4C3E-4A27-A0F8-4664187F9FCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C609201A-4C3E-4A27-A0F8-4664187F9FCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9D344D2-9723-49AD-AAC9-22025C7FE505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9D344D2-9723-49AD-AAC9-22025C7FE505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9D344D2-9723-49AD-AAC9-22025C7FE505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9D344D2-9723-49AD-AAC9-22025C7FE505}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4B670FBB-EABD-42D2-A24B-028B9501F307}
+	EndGlobalSection
+EndGlobal
