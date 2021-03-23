@@ -32,7 +32,7 @@
 
         <Border Grid.Column="1" Margin="2" Visibility="Collapsed" Background="Purple" Name="EmployeesPanel1" HorizontalAlignment="Stretch" BorderThickness="2" BorderBrush="Gray">
             <StackPanel HorizontalAlignment="Stretch" Background="pink" Margin="15">
-                <DataGrid Margin="5" Name="EmployeesGride" ColumnWidth="*" CanUserAddRows="False" MinColumnWidth="100" CanUserResizeColumns="True" SelectionChanged="EmployeesGride_SelectionChanged">
+                <DataGrid Margin="5" Name="EmployeesGrid" ColumnWidth="*" CanUserAddRows="False" MinColumnWidth="100" CanUserResizeColumns="True" SelectedCellsChanged="EmployeesGrid_SelectedCellsChanged">
                 </DataGrid>
                 <Grid Margin="5">
                     <Grid.RowDefinitions>
@@ -53,11 +53,47 @@
         </Border>
 
         <Border Grid.Column="1" Margin="2" Visibility="Collapsed" Background="Purple" Name="CustomersPanel1" HorizontalAlignment="Stretch" BorderThickness="2" BorderBrush="Gray">
-            <Label FontSize="42" HorizontalAlignment="Center">We are in Customers page</Label>
+            <StackPanel HorizontalAlignment="Stretch" Background="pink" Margin="15">
+                <DataGrid Margin="5" Name="CustomersGrid" ColumnWidth="*" CanUserAddRows="False" MinColumnWidth="100" CanUserResizeColumns="True" SelectedCellsChanged="CustomersGrid_SelectedCellsChanged">
+                </DataGrid>
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <WrapPanel Margin="5" Grid.Row="0">
+                        <Label Margin="2" FontWeight="Bold">Detailed Info:</Label>
+                        <Label Margin="2" Content="---" Name="CustomerLabel"></Label>
+                    </WrapPanel>
+                    <DockPanel HorizontalAlignment="Center" Margin="20" Grid.Row="1">
+                        <Button Margin="10" Height="50" Width="150" Background="Purple" Name="btnAddCustomer" Click="btnAddCustomer_Click" FontWeight="Heavy" HorizontalAlignment="Center" FontFamily="Time New Roman" Foreground="WhiteSmoke">Add Employee</Button>
+                        <Button Margin="10" Height="50" Width="150" Background="Purple" Name="btnDeleteCustomer" Click="btnDeleteCustomer_Click" FontWeight="Heavy" HorizontalAlignment="Center" FontFamily="Time New Roman" Foreground="WhiteSmoke" >Delete</Button>
+                        <Button Margin="10" Height="50" Width="150" Background="Purple" Name="btnEditCustomer" Click="btnEditCustomer_Click" FontWeight="Heavy" HorizontalAlignment="Center" FontFamily="Time New Roman" Foreground="WhiteSmoke" >Edit</Button>
+                    </DockPanel>
+                </Grid>
+            </StackPanel>
         </Border>
 
         <Border Grid.Column="1" Margin="2" Visibility="Collapsed" Background="Purple" Name="ProductsPanel1" HorizontalAlignment="Stretch" BorderThickness="2" BorderBrush="Gray">
-            <Label FontSize="42" HorizontalAlignment="Center">We are in Products page</Label>
+            <StackPanel HorizontalAlignment="Stretch" Background="pink" Margin="15">
+                <DataGrid Margin="5" Name="ProductsGrid" ColumnWidth="*" CanUserAddRows="False" MinColumnWidth="100" CanUserResizeColumns="True" SelectedCellsChanged="ProductsGrid_SelectedCellsChanged">
+                </DataGrid>
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <WrapPanel Margin="5" Grid.Row="0">
+                        <Label Margin="2" FontWeight="Bold">Detailed Info:</Label>
+                        <Label Margin="2" Content="---" Name="ProductLabel"></Label>
+                    </WrapPanel>
+                    <DockPanel HorizontalAlignment="Center" Margin="20" Grid.Row="1">
+                        <Button Margin="10" Height="50" Width="150" Background="Purple" Name="btnAddProduct" Click="btnAddProduct_Click" FontWeight="Heavy" HorizontalAlignment="Center" FontFamily="Time New Roman" Foreground="WhiteSmoke">Add Employee</Button>
+                        <Button Margin="10" Height="50" Width="150" Background="Purple" Name="btnDeleteProduct" Click="btnDeleteProduct_Click" FontWeight="Heavy" HorizontalAlignment="Center" FontFamily="Time New Roman" Foreground="WhiteSmoke" >Delete</Button>
+                        <Button Margin="10" Height="50" Width="150" Background="Purple" Name="btnEditProduct" Click="btnEditProduct_Click" FontWeight="Heavy" HorizontalAlignment="Center" FontFamily="Time New Roman" Foreground="WhiteSmoke" >Edit</Button>
+                    </DockPanel>
+                </Grid>
+            </StackPanel>
         </Border>
 
     </Grid>

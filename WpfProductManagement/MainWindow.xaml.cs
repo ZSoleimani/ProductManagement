@@ -29,7 +29,7 @@ namespace WpfProductManagement
 
         ObservableCollection<Employee> Employees = new ObservableCollection<Employee>();
         ObservableCollection<Customer> Customers = new ObservableCollection<Customer>();
-        ObservableCollection<Product> Product = new ObservableCollection<Product>();
+        ObservableCollection<Product> Products=new ObservableCollection<Product>();
 
         public Employee currentEmployee { get; set; } = new Employee();
         public Customer currentCustomer { get; set; } = new Customer();
@@ -39,14 +39,16 @@ namespace WpfProductManagement
         {
             InitializeComponent();
             fillData();
-            EmployeesGride.ItemsSource = Employees;
+            EmployeesGrid.ItemsSource = Employees;
+            CustomersGrid.ItemsSource = Customers;
+            ProductsGrid.ItemsSource = Products;
         }
 
         private void fillData()
         {
             Employees = employeeDataAccess.Employees;
             Customers = customerDataAccess.Customers;
-            Product = productDataAcces.Products;
+            Products= productDataAcces.Products;
         }
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
@@ -81,18 +83,37 @@ namespace WpfProductManagement
             ProductsPanel1.Visibility = Visibility.Visible;
         }
 
-        private void EmployeesGride_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void EmployeesGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(EmployeesGride.SelectedIndex >= 0)
+            if(EmployeesGrid.SelectedIndex >= 0)
             {
-                currentEmployee = EmployeesGride.SelectedItem as Employee;
+                currentEmployee = EmployeesGrid.SelectedItem as Employee;
                 EmployeeLabel.Content = currentEmployee.GetBasicInfo();
+            }
+        }
+
+        private void CustomersGrid_SelectionChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            if(CustomersGrid.SelectedIndex >= 0)
+            {
+                currentCustomer = CustomersGrid.SelectedItem as Customer;
+                CustomerLabel.Content = currentCustomer.GetBasicInfo();
+            }
+        }
+
+        private void ProductsGrid_SelectionChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            if (ProductsGrid.SelectedIndex >= 0)
+            {
+                currentProduct = ProductsGrid.SelectedItem as Product;
+                ProductLabel.Content = currentProduct.GetBasicInfo();
             }
         }
 
         private void btnAddEmployee_Click(object sender, RoutedEventArgs e)
         {
-
+            AddEditEmployee addWindow = new AddEditEmployee(employeeDataAccess);
+            addWindow.ShowDialog();
         }
 
         private void btnDeleteEmployee_Click(object sender, RoutedEventArgs e)
@@ -103,6 +124,65 @@ namespace WpfProductManagement
         private void btnEditEmployee_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void EmployeesGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            if (EmployeesGrid.SelectedIndex >= 0)
+            {
+                currentEmployee = EmployeesGrid.SelectedItem as Employee;
+                EmployeeLabel.Content = currentEmployee.GetBasicInfo();
+            }
+
+        }
+
+        private void ProductsGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            if (ProductsGrid.SelectedIndex >= 0)
+            {
+                currentProduct = ProductsGrid.SelectedItem as Product;
+                ProductLabel.Content = currentProduct.GetBasicInfo();
+            }
+
+        }
+
+        private void btnDeleteCustomer_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAddCustomer_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnEditCustomer_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAddProduct_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDeleteProduct_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnEditProduct_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CustomersGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            if (CustomersGrid.SelectedIndex >= 0)
+            {
+                currentCustomer = CustomersGrid.SelectedItem as Customer;
+                CustomerLabel.Content = currentCustomer.GetBasicInfo();
+            }
         }
     }
 }
