@@ -83,33 +83,6 @@ namespace WpfProductManagement
             ProductsPanel1.Visibility = Visibility.Visible;
         }
 
-        private void EmployeesGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if(EmployeesGrid.SelectedIndex >= 0)
-            {
-                currentEmployee = EmployeesGrid.SelectedItem as Employee;
-                EmployeeLabel.Content = currentEmployee.GetBasicInfo();
-            }
-        }
-
-        private void CustomersGrid_SelectionChanged(object sender, SelectedCellsChangedEventArgs e)
-        {
-            if(CustomersGrid.SelectedIndex >= 0)
-            {
-                currentCustomer = CustomersGrid.SelectedItem as Customer;
-                CustomerLabel.Content = currentCustomer.GetBasicInfo();
-            }
-        }
-
-        private void ProductsGrid_SelectionChanged(object sender, SelectedCellsChangedEventArgs e)
-        {
-            if (ProductsGrid.SelectedIndex >= 0)
-            {
-                currentProduct = ProductsGrid.SelectedItem as Product;
-                ProductLabel.Content = currentProduct.GetBasicInfo();
-            }
-        }
-
         private void btnAddEmployee_Click(object sender, RoutedEventArgs e)
         {
             AddEditEmployee addWindow = new AddEditEmployee(employeeDataAccess);
@@ -118,12 +91,24 @@ namespace WpfProductManagement
 
         private void btnDeleteEmployee_Click(object sender, RoutedEventArgs e)
         {
+            if (EmployeesGrid.SelectedIndex >= 0)
+            {
+                currentEmployee = EmployeesGrid.SelectedItem as Employee;
+                employeeDataAccess.RemoveProduct(currentEmployee.Id);
+                EmployeeLabel.Content = "---";
 
+            }
         }
 
         private void btnEditEmployee_Click(object sender, RoutedEventArgs e)
         {
+            if (EmployeesGrid.SelectedIndex >= 0)
+            {
+                currentEmployee = EmployeesGrid.SelectedItem as Employee;
+                AddEditEmployee addWindow = new AddEditEmployee(employeeDataAccess, currentEmployee);
+                addWindow.ShowDialog();
 
+            }
         }
 
         private void EmployeesGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
