@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using DataAccess.Models;
@@ -9,7 +10,7 @@ namespace DataAccess
 {
     public class EmployeeDataAccess
     {
-            public List<Employee> Employees { get; set; } = new List<Employee>();
+            public ObservableCollection<Employee> Employees { get; set; } = new ObservableCollection<Employee>();
 
             public EmployeeDataAccess()
             {
@@ -21,25 +22,36 @@ namespace DataAccess
                 Employee emp1 = new Employee()
                 {
                     Id = 1,
-                    FirstName = "George",
-                    LastName = "Orwell",
-                    PhoneNumber = 12121212,
-                    Address = "Tehran",
-                    Department = Department.Production,
+                    FirstName = "Sulaiman",
+                    LastName = "Kasas",
+                    PhoneNumber = 42321772,
+                    Address = "Danmark",
+                    Department = Department.Sales,
                     BaseSalary = 2500
                 };
                 Employee emp2 = new Employee()
                 {
                     Id = 2,
-                    FirstName = "Aldous",
-                    LastName = "Huxley",
-                    PhoneNumber = 51234556,
-                    Address = "Tehran",
+                    FirstName = "Amer",
+                    LastName = "Biro",
+                    PhoneNumber = 42492297,
+                    Address = "Danmark",
                     Department = Department.Management,
                     BaseSalary = 3500
                 };
+                Employee emp3 = new Employee()
+                {
+                Id = 3,
+                FirstName = "Zahra",
+                LastName = "Soleimani",
+                PhoneNumber = 71658952,
+                Address = "Danmark",
+                Department = Department.Advertisement,
+                BaseSalary = 2500
+                };
                 Employees.Add(emp1);
                 Employees.Add(emp2);
+                Employees.Add(emp3);
             }
 
             public void AddEmployee(Employee emp)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using DataAccess.Models;
@@ -8,7 +9,7 @@ namespace DataAccess
 {
     public class CustomerDataAccess
     {
-        public List<Customer> Customers { get; set; } = new List<Customer>();
+        public ObservableCollection<Customer> Customers { get; set; } = new ObservableCollection<Customer>();
 
         public CustomerDataAccess()
         {

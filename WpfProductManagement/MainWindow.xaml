@@ -30,15 +30,33 @@
             </StackPanel>
         </Border>
 
-        <Border Grid.Column="1" Margin="2" Visibility="Visible" Background="Purple" Name="EmployeesPanel1" HorizontalAlignment="Stretch" BorderThickness="2" BorderBrush="Gray">
-            <Label FontSize="42" HorizontalAlignment="Center">We are in Employees page</Label>
+        <Border Grid.Column="1" Margin="2" Visibility="Collapsed" Background="Purple" Name="EmployeesPanel1" HorizontalAlignment="Stretch" BorderThickness="2" BorderBrush="Gray">
+            <StackPanel HorizontalAlignment="Stretch" Background="pink" Margin="15">
+                <DataGrid Margin="5" Name="EmployeesGride" ColumnWidth="*" CanUserAddRows="False" MinColumnWidth="100" CanUserResizeColumns="True" SelectionChanged="EmployeesGride_SelectionChanged">
+                </DataGrid>
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <WrapPanel Margin="5" Grid.Row="0">
+                        <Label Margin="2" FontWeight="Bold">Detailed Info: </Label>
+                        <Label Margin="2" Content="---" Name="EmployeeLabel"></Label>
+                    </WrapPanel>
+                    <DockPanel HorizontalAlignment="Center" Margin="20" Grid.Row="1">
+                        <Button Margin="10" Height="50" Width="150" Background="Purple" Name="btnAddEmployee" Click="btnAddEmployee_Click" FontWeight="Heavy" HorizontalAlignment="Center" FontFamily="Time New Roman" Foreground="WhiteSmoke">Add Employee</Button>
+                        <Button Margin="10" Height="50" Width="150" Background="Purple" Name="btnDeleteEmployee" Click="btnDeleteEmployee_Click" FontWeight="Heavy" HorizontalAlignment="Center" FontFamily="Time New Roman" Foreground="WhiteSmoke" >Delete</Button>
+                        <Button Margin="10" Height="50" Width="150" Background="Purple" Name="btnEditEmployee" Click="btnEditEmployee_Click" FontWeight="Heavy" HorizontalAlignment="Center" FontFamily="Time New Roman" Foreground="WhiteSmoke" >Edit</Button>
+                    </DockPanel>
+                </Grid>
+            </StackPanel> 
         </Border>
 
-        <Border Grid.Column="1" Margin="2" Visibility="Visible" Background="Purple" Name="CustomersPanel1" HorizontalAlignment="Stretch" BorderThickness="2" BorderBrush="Gray">
+        <Border Grid.Column="1" Margin="2" Visibility="Collapsed" Background="Purple" Name="CustomersPanel1" HorizontalAlignment="Stretch" BorderThickness="2" BorderBrush="Gray">
             <Label FontSize="42" HorizontalAlignment="Center">We are in Customers page</Label>
         </Border>
 
-        <Border Grid.Column="1" Margin="2" Visibility="Visible" Background="Purple" Name="ProductsPanel1" HorizontalAlignment="Stretch" BorderThickness="2" BorderBrush="Gray">
+        <Border Grid.Column="1" Margin="2" Visibility="Collapsed" Background="Purple" Name="ProductsPanel1" HorizontalAlignment="Stretch" BorderThickness="2" BorderBrush="Gray">
             <Label FontSize="42" HorizontalAlignment="Center">We are in Products page</Label>
         </Border>
 
