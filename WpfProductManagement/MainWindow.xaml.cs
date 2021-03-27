@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using DataAccess;
 using DataAccess.Models;
 
@@ -30,6 +18,7 @@ namespace WpfProductManagement
         ObservableCollection<Employee> Employees = new ObservableCollection<Employee>();
         ObservableCollection<Customer> Customers = new ObservableCollection<Customer>();
         ObservableCollection<Product> Products=new ObservableCollection<Product>();
+        private object productDataAccess;
 
         public Employee currentEmployee { get; set; } = new Employee();
         public Customer currentCustomer { get; set; } = new Customer();
@@ -94,9 +83,8 @@ namespace WpfProductManagement
             if (EmployeesGrid.SelectedIndex >= 0)
             {
                 currentEmployee = EmployeesGrid.SelectedItem as Employee;
-                employeeDataAccess.RemoveProduct(currentEmployee.Id);
+                employeeDataAccess.RemoveEmployee(currentEmployee.Id);
                 EmployeeLabel.Content = "---";
-
             }
         }
 
@@ -133,32 +121,56 @@ namespace WpfProductManagement
 
         private void btnDeleteCustomer_Click(object sender, RoutedEventArgs e)
         {
-
+            if (CustomersGrid.SelectedIndex >= 0)
+            {
+                currentCustomer = CustomersGrid.SelectedItem as Customer;
+                customerDataAccess.RemoveCustomer(currentCustomer.Id);
+                CustomerLabel.Content = "---";
+            }
         }
 
         private void btnAddCustomer_Click(object sender, RoutedEventArgs e)
         {
-
+            AddEditCustomer addWindow = new AddEditCustomer(customerDataAccess);
+            addWindow.ShowDialog();
         }
 
         private void btnEditCustomer_Click(object sender, RoutedEventArgs e)
         {
+            if (CustomersGrid.SelectedIndex >= 0)
+            {
+                currentCustomer = CustomersGrid.SelectedItem as Customer;
+                AddEditCustomer addWindow = new AddEditCustomer(customerDataAccess, currentCustomer);
+                addWindow.ShowDialog();
 
+            }
         }
 
         private void btnAddProduct_Click(object sender, RoutedEventArgs e)
         {
-
+            AddEditProduct addWindow = new AddEditProduct(productDataAccess);
+            addWindow.ShowDialog();
         }
 
         private void btnDeleteProduct_Click(object sender, RoutedEventArgs e)
         {
-
+            if (ProductsGrid.SelectedIndex >= 0)
+            {
+                currentProduct = ProductsGrid.SelectedItem as Product;
+                //productDataAccess.RemoveProduct(currentProduct.Id);
+                EmployeeLabel.Content = "---";
+            }
         }
 
         private void btnEditProduct_Click(object sender, RoutedEventArgs e)
         {
+            if (ProductsGrid.SelectedIndex >= 0)
+            {
+                currentProduct = ProductsGrid.SelectedItem as Product;
+                //AddEditProduct addWindow = new AddEditProduct(productDataAcces, currentProduct);
+                //addWindow.ShowDialog();
 
+            }
         }
 
         private void CustomersGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)

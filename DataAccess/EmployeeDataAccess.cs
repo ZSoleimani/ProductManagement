@@ -59,7 +59,7 @@ namespace DataAccess
                 Employees.Add(emp);
             }
 
-            public void RemoveProduct(int id)
+            public void RemoveEmployee(int id)
             {
                 Employee temp = Employees.First(x => x.Id == id);
                 Employees.Remove(temp);

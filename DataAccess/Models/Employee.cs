@@ -13,7 +13,10 @@ namespace DataAccess.Models
         public string Address { get; set; }
         public Department Department { get; set; }
         public decimal BaseSalary { get; set; }
-
+        public string Name { get; set; }
+        public string Author { get; set; }
+        public ulong Price { get; set; }
+        public decimal AvailableCount { get; set; }
 
         public string GetBasicInfo()
         {
