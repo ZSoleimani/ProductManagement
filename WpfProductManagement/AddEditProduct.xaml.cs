@@ -15,23 +15,30 @@ namespace WpfProductManagement
         private bool editIt = false;
         private object productDataAccess1;
 
+        public AddEditProduct(ProductDataAcces productDataAccess1)
+        {
+            InitializeComponent();
+            ProductDataAccess productDataAccess2 = productDataAccess;
+#pragma warning restore CS1717 // Assignment made to same variable
+        }
+
         public AddEditProduct(object productDataAccess1)
         {
             this.productDataAccess1 = productDataAccess1;
         }
 
-        public AddEditProduct(ProductDataAcces prtDataAccess, Product prt)
+        public AddEditProduct(ProductDataAcces productDataAcces, Product product)
         {
             InitializeComponent();
-            productDataAccess = prtDataAccess;
-            editingProduct = prt;
+            productDataAccess = productDataAcces;
+            tbName.Text = product.Name;
+            tbAuthor.Text = product.Author;
+            tbAvailableCount.Text = product.AvailableCount.ToString();
+            tbPrice.Text = product.Price.ToString();
             editIt = true;
-            tbName.Text = editingProduct.Name;
-            tbAuthor.Text = editingProduct.Author;
-            tbPrice.Text = editingProduct.Price.ToString();
-            tbAvailableCount.Text = editingProduct.AvailableCount.ToString();
+            editingProduct = product;
         }
-        
+
         private void btnCancel_Product_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -46,8 +53,9 @@ namespace WpfProductManagement
                     Id = editingProduct.Id,
                     Name = tbName.Text,
                     Author = tbAuthor.Text,
-                    Price = Convert.ToUInt64(tbPrice.Text),
                     AvailableCount = (int)Convert.ToUInt64(tbAvailableCount.Text),
+                    Price = Convert.ToUInt64(tbPrice.Text),
+ 
                 };
                 productDataAccess.EditProduct(prt);
             }
@@ -58,8 +66,8 @@ namespace WpfProductManagement
                     Id = productDataAccess.GetNexId(),
                     Name = tbName.Text,
                     Author = tbAuthor.Text,
-                    Price = Convert.ToUInt64(tbPrice.Text),
                     AvailableCount = (int)Convert.ToDecimal(tbAvailableCount.Text),
+                    Price = Convert.ToDecimal(tbPrice.Text),
                 };
                 productDataAccess.AddProduct(prt);
                 this.Close();

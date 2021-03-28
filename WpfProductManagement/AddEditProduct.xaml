@@ -17,12 +17,12 @@
                 <TextBox HorizontalAlignment="Right" Width="500" Name="tbAuthor"/>
             </DockPanel>
             <DockPanel Margin="10">
-                <Label Margin="10">Price:</Label>
-                <TextBox HorizontalAlignment="Right" Width="500" Name="tbPrice"/>
+                <Label Margin="10">Available:</Label>
+                <TextBox HorizontalAlignment="Right" Width="500" Name="tbAvailableCount"/>
             </DockPanel>
             <DockPanel Margin="10">
-                <Label Margin="10">AvailableCount:</Label>
-                <TextBox HorizontalAlignment="Right" Width="500" Name="tbAvailableCount"/>
+                <Label Margin="10">Price:</Label>
+                <TextBox HorizontalAlignment="Right" Width="500" Name="tbPrice"/>
             </DockPanel>
             <DockPanel Margin="10" HorizontalAlignment="Right">
                 <Button Margin="10" Height="50" Width="120" Name="btnCancel_Product" Click="btnCancel_Product_Click" >Cancel</Button>
